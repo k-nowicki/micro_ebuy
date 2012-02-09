@@ -12,7 +12,7 @@ class Auction < ActiveRecord::Base
   validate  :ensure_end_at_after_now
 
   def ensure_end_at_after_now
-    errors.add('end_at', "must be after now") if end_at && (end_at.to_time - Time.now < 0)
+    errors.add('end_at', "must be later than now") if end_at && (end_at.to_time - Time.now < 0)
   end
 
 
