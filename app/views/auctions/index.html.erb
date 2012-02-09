@@ -1,0 +1,21 @@
+<h1>All Auctions</h1>
+
+<span class="auction-list">
+
+<%= render "auctions/auction"  %>
+</span>
+<br />
+
+<%= link_to 'New Auction', new_auction_path %>
+
+
+<script type="text/javascript">
+
+    var auto_refresh = setInterval(
+        function (){
+        $('.auction-list').load("auction_list").fadeIn("slow");
+        }, 5000);
+
+
+
+</script>

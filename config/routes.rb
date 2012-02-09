@@ -1,4 +1,15 @@
 Microebay::Application.routes.draw do
+
+
+
+  resources :auctions
+  match 'auction_list' => 'auctions#auction_list'
+
+  resources :common, :controller => "auctions", :type => "Common"
+  resources :penny, :controller => "auctions", :type => "Peny"
+  resources :buynow, :controller => "auctions", :type => "Buynow"
+  resources :snail, :controller => "auctions", :type => "Snail"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +59,7 @@ Microebay::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => 'auctions#index'
 
   # See how all your routes lay out with "rake routes"
 
